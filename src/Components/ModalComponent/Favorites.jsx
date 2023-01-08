@@ -9,7 +9,7 @@ import Loader from "../admin/Loader";
 import { Button } from "@windmill/react-ui";
 import { getAuth, nShorter } from "../../Helpers/uitils"
 
-const Favorites = ({ _id  }) => {
+const Favorites = ({ _id }) => {
   const [loadingData, setLoadingData] = useState(true);
   const [productLiked, setProductLiked] = useState([]);
 
@@ -17,10 +17,10 @@ const Favorites = ({ _id  }) => {
 
   const loadSomething = async () => {
     try {
-      const response = await API.post(`/user/getLiked/${_id}`, { auth : getAuth() });
+      const response = await API.post(`/user/getLiked/${_id}`, { auth: getAuth() });
       setLoadingData(false);
       setProductLiked(response.data.liked_products);
-    } catch (e) {}
+    } catch (e) { }
   };
 
   useEffect(() => {
@@ -48,11 +48,11 @@ const Favorites = ({ _id  }) => {
                   <p className="text-lg">{prod.name}</p>
                   <div className="flex items-center space-x-1">
                     <AiFillHeart className="text-red-400 w-7 h-7" />
-                    <p>{nShorter(prod.likes,1)} likes</p>
+                    <p>{nShorter(prod.likes, 1)} likes</p>
                   </div>
-                  <Button onClick={() => { 
-                      history.push(`/productdetail/${prod._id}`) 
-                    }} className=" w-full text-white font-inter py-2 px-4 rounded">
+                  <Button onClick={() => {
+                    history.push(`/productdetail/${prod._id}`)
+                  }} className=" w-full text-white font-inter py-2 px-4 rounded">
                     View Product Info
                   </Button>
                 </div>

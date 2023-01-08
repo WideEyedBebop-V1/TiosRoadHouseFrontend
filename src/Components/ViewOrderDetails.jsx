@@ -17,18 +17,18 @@ const ViewOrderDetails = ({ order_ID }) => {
 
   const loadSomething = async () => {
     try {
-      const response = await API.post("/user/orderDetails", { order_ID , auth : getAuth()});
+      const response = await API.post("/user/orderDetails", { order_ID, auth: getAuth() });
       setOrder(response.data.details);
       console.log(response.data);
       setLoadingData(false);
-    } catch (e) {}
+    } catch (e) { }
   };
 
   useEffect(() => {
     loadSomething();
   }, []);
 
-  
+
 
   return loadingData ? (
     <FullPageLoader />
@@ -150,7 +150,7 @@ const ViewOrderDetails = ({ order_ID }) => {
           </div>
           <div className="my-8">
             {order.items.map((item, idx) => (
-              <Card key={idx} onClick={()=>history.push(`/productdetail/${item.product_ID}`)} className="cursor-pointer relative flex h-24 my-4 ">
+              <Card key={idx} onClick={() => history.push(`/productdetail/${item.product_ID}`)} className="cursor-pointer relative flex h-24 my-4 ">
                 <img
                   className="object-cover w-1/4"
                   src={item.thumb}

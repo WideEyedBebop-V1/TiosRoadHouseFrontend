@@ -30,19 +30,17 @@ import { saveAuth } from "../../Helpers/uitils"
 import AdminTwoFactorAuthConfirm from "../../Components/ModalComponent/Admin/AdminTwoFactorAuthConfirm";
 
 /* GLogin - OneTap and Login */
-import { GoogleLogin } from "react-google-login";
+import { GoogleLogin } from "@leecheuk/react-google-login";
 import googleOneTap from 'google-one-tap';
 
 /* GAssets */
 //import GLogo from "../../assets/google_signin_buttons/g_logo_transparent.svg";
 
-/* env */
-require("dotenv").config();
 
 const SignAdmin = (props) => {
 
-  const CLID = process.env.REACT_APP_GCLIENTID;
-  const AUTO_SIGNIN = process.env.REACT_APP_AUTO_SIGN_IN
+  const CLID = import.meta.env.VITE_GCLIENTID;
+  const AUTO_SIGNIN = import.meta.env.VITE_AUTO_SIGN_IN
 
   const [email, setEmail] = useState("");
   const [passVis, setPassVis] = useState(false);

@@ -34,7 +34,7 @@ import API from "../../Helpers/api";
 import { saveAuth } from "../../Helpers/uitils"
 
 /* GAuth identity */
-import { GoogleLogin } from "react-google-login";
+import { GoogleLogin } from "@leecheuk/react-google-login";
 import googleOneTap from "google-one-tap";
 
 const Signup = (props) => {
@@ -169,8 +169,8 @@ const Signup = (props) => {
     setPassVis2(!passVis2);
   };
 
-  const CLID = process.env.REACT_APP_GCLIENTID;
-  const AUTO_SIGNIN = process.env.REACT_APP_AUTO_SIGN_IN;
+  const CLID = import.meta.env.VITE_GCLIENTID;
+  const AUTO_SIGNIN = import.meta.env.VITE_AUTO_SIGN_IN;
 
   const GOnSuccess = async (res) => {
     try {

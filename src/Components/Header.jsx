@@ -33,8 +33,8 @@ import { signout } from "../Features/userSlice";
 import { openNotifier } from "../Features/uiSlice";
 import { openInputModal } from "../Features/uiSlice";
 
-import Chat from "../Components/ModalComponent/Chat";
-import Favorites from "../Components/ModalComponent/Favorites";
+import Chat from "./ModalComponent/Chat";
+import Favorites from "./ModalComponent/Favorites";
 
 import API from "../Helpers/api";
 

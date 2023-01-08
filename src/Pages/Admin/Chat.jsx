@@ -6,7 +6,7 @@ import ProtectedLoader from "../../Components/ProtectedLoader";
 import API from "../../Helpers/api";
 import { getAuth, getChatTick } from "../../Helpers/uitils";
 
-import LiveChat from "../../Pages/Admin/LiveChatDetails";
+import LiveChat from "./LiveChatDetails";
 
 import { RiMessage3Fill } from "react-icons/ri";
 import { AiFillDelete } from "react-icons/ai";
@@ -30,15 +30,15 @@ const Chat = () => {
     try {
       const res = API.post("/admin/deleteConversation", {
         user_id,
-        auth : getAuth()
+        auth: getAuth()
       });
-    } catch (e) {}
+    } catch (e) { }
   };
 
   const seenConvo = (copy, user_id, idx) => {
     setChoosing(true);
     setSelConv(-1);
-    const res = API.post("/admin/seenConversation", { user_id, auth : getAuth() });
+    const res = API.post("/admin/seenConversation", { user_id, auth: getAuth() });
 
     setChoosing(false);
     setSelConv(idx);
@@ -48,7 +48,7 @@ const Chat = () => {
     const loadSomething = async () => {
       try {
         console.log("REQUESTING UPDATES");
-        const response = await API.post("/admin/getChat", {auth : getAuth() });
+        const response = await API.post("/admin/getChat", { auth: getAuth() });
         setConversation(response.data.conversations);
         setLoadingData(false);
         setChoosing(false);
@@ -109,10 +109,9 @@ const Chat = () => {
                         <img
                           src={customer.profile_info.profile_picture}
                           alt=""
-                          className={`w-8 h-8 rounded-full ${
-                            customer.hasNewMessage &&
+                          className={`w-8 h-8 rounded-full ${customer.hasNewMessage &&
                             "animate-pulse ring-2 ring-blue-400"
-                          }`}
+                            }`}
                         />
                         <div className="">
                           <div className="hidden lg:flex justify-between ">
@@ -152,7 +151,7 @@ const Chat = () => {
             {conversations.length > 0 && (
               <AnimatePresence>
                 {getProperIndex(selConv) !== -1 &&
-                selConv < conversations.length ? (
+                  selConv < conversations.length ? (
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -199,7 +198,7 @@ const Chat = () => {
                       userId={conversations[selConv].user_id}
                       profile_info={conversations[selConv].profile_info}
                     />
-                    
+
                   </motion.div>
                 ) : (
                   <motion.div

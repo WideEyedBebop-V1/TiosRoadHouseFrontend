@@ -12,13 +12,13 @@ import NotFound from "../NotFound";
 import Insights from "./Insights";
 import Products from "./Products";
 import AdminHeader from "../../Components/AdminHeader";
-import Categories from "../../Pages/Admin/Categories";
-import Chat from "../../Pages/Admin/Chat";
-import Couriers from "../../Pages/Admin/Couriers";
-import DeliveredOrders from "../../Pages/Admin/DeliveredOrders";
-import OrdersInProgress from "../../Pages/Admin/OrderInProgress";
-import PendingOrders from "../../Pages/Admin/PendingOrders";
-import Admins from "../../Pages/Admin/Admins";
+import Categories from "./Categories";
+import Chat from "./Chat";
+import Couriers from "./Couriers";
+import DeliveredOrders from "./DeliveredOrders";
+import OrdersInProgress from "./OrderInProgress";
+import PendingOrders from "./PendingOrders";
+import Admins from "./Admins";
 
 const AdminContainer = (props) => {
   const { history } = props;
